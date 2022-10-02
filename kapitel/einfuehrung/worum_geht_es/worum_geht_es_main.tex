@@ -1,0 +1,64 @@
+% !TEX root = ../../../main.tex
+
+\toggletrue{image}
+\toggletrue{imagehover}
+\chapterimage{twitter_bot}
+\chapterimagetitle{\uppercase{Twitter Bot}}
+\chapterimageurl{https://xkcd.com/1646/}
+\chapterimagehover{PYTHON FLAG ENABLE THREE LAWS.}
+
+\chapter{Worum geht es?}
+\label{chapter-worum-geht-es}
+
+Was bedeutet es zu programmieren? \textbf{Programmieren} bedeutet, mit dem Computer zu kommunizieren. Wir teilen dem Computer mit, was er zu tun hat und zwar in einer Sprache, die er versteht. Sprachen, die der Computer versteht, nennt man \textbf{Programmiersprachen}. Wie jede natürliche Sprache besteht auch eine Programmiersprache aus Wörtern, die eine bestimmte Bedeutung haben. Man verwendet eine Programmiersprache, um dem Computer Anweisungen zu geben. Deshalb nennt man die Wörter einer Programmiersprache \textbf{Computerbefehle} oder kurz \textbf{Befehle}. Manchmal wird auch das Wort \textbf{Instruktion} verwendet. Ein \textbf{Programm} besteht aus einer Reihe von Befehlen einer Programmiersprache. Das Ziel des Programmierens ist es, eine Tätigkeit zu \textbf{automatisieren}. Das bedeutet, dass wir die Ausübung einer Tätigkeit komplett dem Computer überlassen \cite{einfach-informatik-programmieren}.
+
+\begin{definition}[Imperatives Programmieren]
+Beim imperativen Programmieren beschreibt das Programm, \textbf{wie} man mit Computerbefehlen ein gewünschtes Ziel erreichen kann. Im Fokus steht die korrekte Reihenfolge der Befehle, um das Ziel schrittweise zu erreichen.
+\end{definition}
+
+In diesem Skript erlernen Sie die Grundlagen der imperativen Programmierung. Wir verwenden dazu die Programmiersprache \textbf{Python} (\autoref{figure-python-logo}) in der Version 3\footnote{Es gibt auch Python in der Version 2.}.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}[b][][b]{0.4\textwidth}
+\centering 
+\includegraphics[scale=0.3]{python-logo}
+\caption{Das Python-Logo.}
+\label{figure-python-logo}
+\end{minipage}
+\hfill
+\begin{minipage}[b][][b]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.4]{turtle-star}
+\caption{Beispiel für eine Turtle-Grafik.}
+\label{figure-turtle-graphic-beispiel}
+\end{minipage}
+\end{figure}
+
+Um die Programmiergrundlagen zu erlernen, greifen wir auf das \textbf{Turtle-Modul} von Python zurück. Mit diesem Modul kann man eine Schildkröte (Turtle) mit einem \say{Stift} über den Bildschirm bewegen. Wir können mit einem Python-Programm bestimmen, wie sich die Turtle bewegen soll. \autoref{figure-turtle-graphic-beispiel} zeigt ein Beispiel für eine Grafik, welche mit der Turtle erstellt wurde.
+
+\section{Lernziele}
+
+Das Skript hat folgende Ziele:
+
+\newcommand{\worumGehtEsLernziele}{
+\protect\begin{todolist}
+\item Sie erklären, was ein Programm ist, was eine Programmiersprache ist und was es bedeutet imperativ zu programmieren.
+\item Sie erstellen ein Programm, welches eine gegebene geometrische Figur (z. B. ein Quadrat) zeichnet oder eine Problemstellung löst.
+\item Sie analysieren ein gegebenes Programm und erklären \say{was das Programm macht}.
+\item Sie erkennen Programmierfehler und korrigieren diese selbstständig.
+\item Sie wenden die Regeln für einen guten Programmierstil an.
+\end{todolist}
+}
+
+\lernziel{\autoref{chapter-worum-geht-es}, \nameref{chapter-worum-geht-es}}{\protect\worumGehtEsLernziele}
+
+\worumGehtEsLernziele
+
+Detailliertere Lernziele finden Sie in den einzelnen Kapiteln.
+
+\begin{hinweis}
+Falls es bei einem Lernziel darum geht, ein Programm zu erstellen bzw. zu analysieren, dann ist \textbf{immer} ein Programm in der Programmiersprache \textbf{Python 3} gemeint.
+\end{hinweis}
+
+Alle Konzepte, die Sie mit der Turtle erlernen, können wir später auf andere Themen anwenden. Neben dem Turtle-Modul werden wir auch andere Module, welche nichts mit der Turtle \say{zu tun haben}, anschauen und einsetzen.
