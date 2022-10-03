@@ -1,0 +1,95 @@
+% !TEX root = ../../../main.tex
+
+\toggletrue{image}
+\toggletrue{imagehover}
+\chapterimage{python}
+\chapterimagetitle{\uppercase{Python}}
+\chapterimageurl{https://xkcd.com/353/}
+\chapterimagehover{I wrote 20 short programs in Python yesterday. It was wonderful. Perl, I'm leaving you.}
+
+\chapter{Bildschirmausgabe}
+\label{chapter-bildschirmausgabe}
+
+Neben dem Turtle-Modul möchten wir uns Schritt-für-Schritt auch andere Bereiche anschauen, welche nichts mit der Turtle zu tun haben. Folgende Ziele erreichen Sie nach diesem Kapitel:
+
+\newcommand{\bildschirmausgabeLernziele}{
+\protect\begin{todolist}
+\item Sie erstellen ein Programm, welches eine Ausgabe produziert.
+\end{todolist}
+}
+
+\lernziel{\autoref{chapter-bildschirmausgabe}, \nameref{chapter-bildschirmausgabe}}{\protect\bildschirmausgabeLernziele}
+
+\bildschirmausgabeLernziele
+
+\section{Hello, World!}
+
+Wir beginnen damit, ein \say{Hello, World!-Programm} zu erstellen. Dies ist fast schon eine Tradition, wenn man eine neue Programmiersprache erlernt\footnote{\url{https://en.wikipedia.org/wiki/\%22Hello,\_World!\%22\_program}}. Holen wir dies also nach! \autoref{lst-hello-world} zeigt dieses Programm in Python.\\
+
+\begin{lstlisting}[caption={Quellcode aus \graybgtexttt{hello\_world.py}.}, label=lst-hello-world]
+print("Hello, World!")
+\end{lstlisting}
+
+Wenn wir dieses Programm abtippen und ausführen, dann wird der Text \texttt{Hello, World!} am Bildschirm angezeigt. Die Ausgabe erfolgt standardmässig im Konsolenfenster (kurz Konsole genannt). 
+
+\section{Wie funktioniert der \lstinline{print}-Befehl?}
+
+\begin{itemize}
+	\item Alles, was \textbf{zwischen} den runden Klammern steht, wird in der Konsole ausgegeben.
+	\item Der Text \lstinline[showstringspaces=False]{"Hello, World!"} ist das Argument für den \lstinline{print}-Funktionsaufruf.
+	\item Die geraden, doppelten Anführungszeichen werden benötigt, wenn man in Python Text verwenden möchte. Die Anführungszeichen tauchen jedoch bei der Ausgabe \textbf{nicht} auf. Sie markieren nur den Anfang und das Ende des Textes.
+\end{itemize}
+
+Man kann den \lstinline{print}-Funktionsaufruf beliebig oft benutzen. Pro \lstinline{print}-Funktionsaufruf wird standardmässig eine Zeile in der Ausgabe erzeugt.
+
+\begin{important}
+Der Funktionsaufruf von \lstinline{print} erfolgt \textbf{ohne} ein davor notierter Modulname. Wir müssen auch kein Modul importieren, um den Funktionsaufruf einzusetzen. \lstinline{print} ist eine \textbf{eingebaute Funktion (eng. built-in function)}. Diese Funktionsaufrufe sind \textbf{immer} und \textbf{überall} (ohne Import) durchführbar. 
+\end{important}
+
+\begin{example}
+\autoref{lst-print-bsp} benutzt den \lstinline{print}-Funktionsaufruf zweimal. 
+
+\begin{figure}[htb]
+\centering
+	\begin{minipage}{0.5\textwidth}
+	\centering
+\begin{lstlisting}[caption={Quellcode aus \graybgtexttt{print\_bsp.py}.}, label=lst-print-bsp]
+print("Wie geht es dir?")
+print("Mir geht es gut.")
+\end{lstlisting}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.4\textwidth}
+	\centering
+\begin{lstlisting}[caption={Ausgabe in der Konsole.}, language=output]
+Wie geht es dir?
+Mir geht es gut.
+\end{lstlisting}		
+	\end{minipage}
+\end{figure}
+\end{example}
+
+\begin{hinweis}
+	Die \lstinline{print}-Funktion ermöglicht es dem \textbf{Benutzer} ($\neq$ Programmierer) des Programms etwas mitzuteilen. Es findet also eine Kommunikation vom Computer zum Menschen statt. Der Benutzer des Programms hat typischerweise nicht Zugriff auf den Quellcode. Deshalb kann er den Text der \lstinline{print}-Funktion nicht aus dem Quellcode lesen. Sie nehmen hier nun eine Doppelrolle ein. Sie sind Benutzer und Programmierer gleichzeitig!
+\end{hinweis}
+
+\section{Aufgaben}
+
+In den folgenden Aufgaben setzen Sie sich mit der \lstinline{print}-Funktion auseinander.
+
+\subsection{Aufgabe 1}
+
+Lesen Sie den Comic oberhalb der Kapitelüberschrift. Finden Sie den \say{Fehler} im Comic und korrigieren Sie den Fehler. Es ist ein \say{Programmierfehler}.
+
+\subsection{Aufgabe 2}
+
+Wie muss das Python-Programm aussehen, welches folgende Ausgabe in der Konsole erzeugt?
+
+\begin{lstlisting}[caption={Ausgabe in der Konsole.}, language=output]
+Brauchen wir Marmelade?
+Nur wenn uns die Hexe Toast serviert.
+\end{lstlisting}
+
+Notieren Sie den passenden Code hier.
+
+\fillwithgrid{1.5in}

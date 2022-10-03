@@ -140,7 +140,7 @@ Mit \lstinline{right(angle)} können wir die Turtle um \lstinline{angle} Grad na
 
 \begin{example}
 
-Das \autoref{lst-basics-bsp-1} zeigt, wie man die Turtle mit mehreren Befehlen mehrmals bewegen und drehen kann. In \autoref{figure-basics-bsp-1} wird das Resultat gezeigt.
+Das \autoref{lst-basics-bsp-1} zeigt, wie wir die Turtle mit mehreren Befehlen mehrmals bewegen und drehen können. In \autoref{figure-basics-bsp-1} wird das Resultat gezeigt.
 
 \begin{figure}[htb]
 \centering
@@ -166,7 +166,7 @@ turtle.done()
 	\draw[thick] (0,0) -- ++(0, 1cm) -- ++(2cm, 0) -- ++(-135:2cm) node (end) {};
 	\node[inner sep=0pt, rotate=-135] (turtle) at (end) {\includegraphics[width=.15\textwidth]{turtle}};
 \end{tikzpicture}
-\caption{Resultat, wenn man das Programm aus \autoref{lst-basics-bsp-1} ausführt.}
+\caption{Resultat, wenn wir das Programm aus \autoref{lst-basics-bsp-1} ausführen.}
 \label{figure-basics-bsp-1}
 \end{minipage}
 \end{figure}
@@ -181,7 +181,7 @@ Wir klären zunächst die Art und Weise, wie ein Python-Programm durch den Compu
 Ein Python-Programm wird von \textbf{oben} nach \textbf{unten} ausgeführt. Der Computer liest Zeile für Zeile des Programms und führt nacheinander die entsprechenden Befehle aus. Bei einer Leerzeile passiert \say{nichts}. Es gibt Befehle, die Code-Zeilen überspringen oder zu einer vorherigen Code-Zeile zurückgehen.
 \end{definition}
 
-Python für somit ein Programm stets ab Zeile 1 aus. Damit Programme übersichtlich und leserlich bleiben, werden bei der Software-Entwicklung gewisse Regeln vereinbart. Typischerweise halten sich \textbf{alle} in einem Team an diese Regeln. Wenn man gegenseitig Code austauscht und betrachtet, findet sich somit jeder gleich zurecht. Ausserdem sollen die Regeln aufzeigen, wie man seinen Programmierstil verbessern und dadurch verständlichere Programme erzeugen kann. Wir fassen diese Regeln unter dem Begriff \textbf{Clean Code}\footnote{Wikipedia fasst den Begriff \say{perfekt} zusammen: \url{https://de.wikipedia.org/wiki/Clean_Code}} zusammen.
+Python für somit ein Programm stets ab Zeile 1 aus. Damit Programme übersichtlich und leserlich bleiben, werden bei der Software-Entwicklung gewisse Regeln vereinbart. Typischerweise halten sich \textbf{alle} in einem Team an diese Regeln. Wenn wir gegenseitig Code austauschen und betrachten, findet sich somit jeder gleich zurecht. Ausserdem sollen die Regeln aufzeigen, wie wir unseren Programmierstil verbessern und dadurch verständlichere Programme erzeugen können. Wir fassen diese Regeln unter dem Begriff \textbf{Clean Code}\footnote{Wikipedia fasst den Begriff \say{perfekt} zusammen: \url{https://de.wikipedia.org/wiki/Clean_Code}} zusammen.
 
 \begin{cleancode}[Ein Befehl pro Zeile]
 Wir notieren pro Zeile \textbf{einen} Befehl. \textbf{Alle} \lstinline{import}-Befehle werden in den ersten Zeilen der Python-Datei notiert. Nach dem letzten \lstinline{import}-Befehl fügen wir eine \textbf{Leerzeile} ein.
@@ -193,7 +193,7 @@ Mit \lstinline{penup()} bringen wir die Turtle in den \textbf{Wandermodus}. Im W
 
 \begin{example}
 
-\autoref{lst-basics-bsp-2} zeigt, wie man den Wander- und Zeichenmodus verwenden kann.
+\autoref{lst-basics-bsp-2} zeigt, wie wir den Wander- und Zeichenmodus verwenden.
 
 \begin{figure}[htb]
 \centering
@@ -218,7 +218,7 @@ turtle.done()
 	\draw[thick] (0,0) -- ++(1cm, 0) ++ (1cm, 0) -- ++ (1cm, 0) node (end) {};
 	\node[inner sep=0pt] (turtle) at (end) {\includegraphics[width=.15\textwidth]{turtle}};
 \end{tikzpicture}
-\caption{Resultat, wenn man das Programm aus \autoref{lst-basics-bsp-2} ausführt.}
+\caption{Resultat, wenn wir das Programm aus \autoref{lst-basics-bsp-2} ausführen.}
 \label{figure-basics-bsp-2}
 \end{minipage}
 \end{figure}
