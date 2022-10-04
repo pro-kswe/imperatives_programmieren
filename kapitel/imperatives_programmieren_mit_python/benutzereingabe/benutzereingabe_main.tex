@@ -1,0 +1,182 @@
+% !TEX root = ../../../main.tex
+
+\toggletrue{image}
+\toggletrue{imagehover}
+\chapterimage{text_entry}
+\chapterimagetitle{\uppercase{Text Entry}}
+\chapterimageurl{https://xkcd.com/2137/}
+\chapterimagehover{I like to think that somewhere out there, there's someone whose personal quest is lobbying TV providers to add an option to switch their on-screen keyboards to Dvorak.}
+
+\chapter{Benutzereingabe}
+\label{chapter-benutzereingabe}
+
+Programme arbeiten oft nach dem \ac{EVA}-Prinzip. \autoref{figure-eva-prinzip} zeigt das Prinzip mit Beispielen. Der \lstinline{input}-Funktionsaufruf kann in Python dazu eingesetzt werden, dass der \textbf{Benutzer} (!) des Programms eine Eingabe (eng. input) an das Programm über die Tastatur durchführen kann. Diesen Funktionsaufruf schauen wir uns in diesem Kapitel genauer an. Die Ausgabe am Bildschirm kennen wir bereits. Dafür können wir einen \lstinline{print}-Funktionsaufruf verwenden.
+
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}
+	\node[shape=rectangle, thick, rounded corners, draw, align=center, top color=white, bottom color=blue!20] (input) {Eingabe};
+	\node[shape=rectangle, thick, rounded corners, draw, align=center, top color=white, bottom color=blue!20, below = of input] (process) {Verarbeitung};
+	\node[shape=rectangle, thick, rounded corners, draw, align=center, top color=white, bottom color=blue!20, below = of process] (output) {Ausgabe};
+  \path[-latex, draw, thick] (input)  edge node[right] {z.B. \lstinline{input}} (process);
+  \path[-latex, draw, thick] (process)  edge node[right] {z.B. \lstinline{print}} (output);
+  \node (inputexample) [right = 0.25cm and 0cm of input] {z.B. \textbf{Tastatur}, Maus, $\dots$};
+  \node (processexample) [right = 0.25cm and 0cm of process] {z.B. Python-Programm};
+  \node (outputexample) [right = 0.25cm and 0cm of output] {z.B. \textbf{Bildschirm}, Drucker, $\dots$};
+\end{tikzpicture}
+\caption{Die Python-Funktionen \lstinline{input} realisiert die Eingabe über die Tastatur.}
+\label{figure-eva-prinzip}
+\end{figure}
+
+Die Lernziele für dieses Kapitel lauten:
+
+\newcommand{\benutzereingabeLernziele}{
+\protect\begin{todolist}
+\item Sie erstellen ein Programm, welches eine Benutzereingabe über die Tastatur ermöglicht.
+\item Sie benutzen in Python-Programmen formatierten Text.
+\end{todolist}
+}
+
+\lernziel{\autoref{chapter-benutzereingabe}, \nameref{chapter-benutzereingabe}}{\protect\benutzereingabeLernziele}
+
+\benutzereingabeLernziele
+
+\section{Wie funktioniert die \lstinline{input}-Funktion?}
+
+\autoref{lst-input-example-1} zeigt ein Beispiel für den \lstinline{input}-Funktionsaufruf. Die Benutzereingabe erfolgt über die Tastatur in der \textbf{Konsole}. 
+
+\begin{lstlisting}[caption={Eingabe und Ausgabe werden miteinander kombiniert (\graybgtexttt{input\_bsp\_1.py}).}, label={lst-input-example-1}]
+vorname = input("Wie lautet Ihr Vorname? ")
+print(<@\color{textcolor}f@>"Vorname: <@\color{keywordcolor}\{\color{black}vorname\color{keywordcolor}\}@>")
+\end{lstlisting}
+
+Der \lstinline{input}-Funktionsaufruf erlaubt als Argument einen Text. Dieser Text wird \textbf{vor} der Benutzereingabe in der Konsole ausgegeben. Damit können wir dem Benutzer des Programms mitteilen, was wir als Eingabe erwarten. 
+
+\begin{example}
+In \autoref{lst-input-example-1} ist der Text \lstinline{"Wie lautet Ihr Vorname? "} das Argument des \lstinline{input}-Funktionsaufrufs.	
+\end{example}
+
+\begin{important}
+	Wenn wir ein Programm mit einem \lstinline{input}-Funktionsaufruf ausführen, dann wird das Programm in der Zeile mit dem \lstinline{input}-Funktionsaufruf automatisch \textbf{angehalten}. Der Programmablauf wird so lange gestoppt, bis der Benutzer eine Eingabe über die Tastatur in der \textbf{Konsole} durchführt und diese mit der Return-Taste (\say{Enter}) abschliesst.
+\end{important}
+
+Durch die Kombination einer Zuweisung mit einem \lstinline{input}-Funktionsaufruf, wird die Benutzereingabe in der Variablen gespeichert.
+
+\begin{example}
+	In \autoref{lst-input-example-1} wird die Eingabe nach dem Drücken der Return-Taste in der Variablen \lstinline{vorname} gespeichert.
+\end{example}
+
+\begin{important}
+ Wenn wir mit \lstinline{input} etwas in der Konsole eintippen, dann benötigen wir für die Eingabe \textbf{keine} Anführungszeichen. Python behandelt alles, was mit \lstinline{input} über die Konsole eingetippt wird, automatisch als \textbf{Text}! 
+\end{important}
+
+\begin{example}
+	\autoref{lst-input-example-output-1} zeigt eine Ausführung des Programms aus \autoref{lst-input-example-1}. Es ist nur ein Beispiel. In diesem Fall hat der Benutzer den Text \lstinline{Bob} in der Konsole eingegeben.
+\end{example}
+
+\begin{lstlisting}[caption={Beispielausführung für das Programm aus \autoref{lst-input-example-1}.}, label=lst-input-example-output-1, language=output]
+Wie lautet Ihr Vorname? Bob
+Vorname: Bob
+\end{lstlisting}	
+
+Wir können in einem Programm auch mehrere Benutzereingaben vornehmen. Für jede Benutzereingabe ist ein \lstinline{input}-Funktionsaufruf notwendig.
+
+\begin{example}
+	\autoref{lst-input-example-output-2} zeigt eine Ausführung des Programms aus \autoref{lst-input-example-2}. Der Benutzer muss hier zwei Eingaben vornehmen.
+\end{example}
+
+\begin{lstlisting}[caption={Zwei Eingaben in einem Programm (\graybgtexttt{input\_bsp\_2.py}).}, label={lst-input-example-2}]
+vorname = input("Wie lautet Ihr Vorname? ")
+nachname = input("Wie lautet Ihr Nachname? ")
+print(<@\color{textcolor}f@>"Vorname: <@\color{keywordcolor}\{\color{black}vorname\color{keywordcolor}\}@>")
+print(<@\color{textcolor}f@>"Nachname: <@\color{keywordcolor}\{\color{black}nachname\color{keywordcolor}\}@>")
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Beispielausführung für das Programm aus \autoref{lst-input-example-2}.}, label=lst-input-example-output-2, language=output]
+Wie lautet Ihr Vorname? Stanley
+Wie lautet Ihr Nachname? Kubrick
+Vorname: Stanley
+Nachname: Kubrick
+\end{lstlisting}
+
+\section{Text formatieren}
+
+Wir können innerhalb eines Textes einen Variablennamen notieren. Damit Python während der Ausführung den Variablennamen durch den \textbf{gespeicherten Inhalt der Variablen ersetzt}, müssen wir den Variablennamen im Text \textbf{markieren}. \autoref{lst-f-text-example-1} zeigt in Zeile $2$, wie wir innerhalb eines Textes die Variable markieren können.
+
+\begin{lstlisting}[caption={Formatierter Text (\graybgtexttt{f-text\_bsp\_1.py}).}, label={lst-f-text-example-1}]
+farbe = input("Farbe? ")
+print(<@\color{textcolor}f@>"Das Gummibärchen ist <@\color{keywordcolor}\{\color{black}farbe\color{keywordcolor}\}@>.")
+\end{lstlisting}
+
+\begin{definition}[Formatierter Text]
+	Benutzen wir \textbf{innerhalb} eines Textes die geschweiften Klammern (\lstinline|{| und \lstinline|}|) und notieren wir \textbf{vor} den doppelten Anführungszeichen den Buchstaben \lstinline{f}, dann handelt es sich um formatierten Text. Die Variable innerhalb der geschweiften Klammen wird während der Ausführung durch den gespeicherten Inhalt ersetzt.
+\end{definition}
+
+\begin{example}
+	\autoref{lst-f-text-example-output-1} zeigt die Ausgabe in der Konsole, wenn wir das Programm aus \autoref{lst-f-text-example-1} ausführen. Die geschweiften Klammern erscheinen \textbf{nicht} in der Ausgabe.
+\end{example}
+
+\begin{lstlisting}[caption={Der Variablennamen wird durch den gespeicherten Inhalt ersetzt.}, label=lst-f-text-example-output-1, language=output]
+Farbe? rot
+Das Gummibärchen ist rot.
+\end{lstlisting}
+
+Wir können natürlich auch mehrere geschweifte Klammern in einem Text verwenden. \autoref{lst-f-text-example-2} zeigt ein Beispiel mit zwei Textformatierungen (pro Formatierung ein Klammerpaar). 
+
+\begin{lstlisting}[caption={Beide Variablennamen werden während der Ausführung durch den gespeicherten Inhalt ersetzt. (\graybgtexttt{f-text\_bsp\_2.py}).}, label={lst-f-text-example-2}]
+vorname = input("Wie lautet Ihr Vorname? ")
+nachname = input("Wie lautet Ihr Nachname? ")
+print(<@\color{textcolor}f@>"Vorname: <@\color{keywordcolor}\{\color{black}vorname\color{keywordcolor}\}@>, Nachname: <@\color{keywordcolor}\{\color{black}nachname\color{keywordcolor}\}@>")
+\end{lstlisting}
+
+\begin{important}
+	Das Formatieren von Text hat in Python \textbf{nichts} mit der Formatierung von Text in einem Textverarbeitungsprogramm (wie in Microsoft Word) zu tun. Sie können in Python keinen Text fett gedruckt darstellen oder unterstreichen. 
+\end{important}
+
+Die Textformatierung ist \textbf{nicht} an den \lstinline{print}-Funktionsaufruf gebunden. Wir können Text an beliebigen Stellen formatieren. \autoref{lst-f-text-example-3} zeigt ein Beispiel mit einer Zuweisung.
+
+\begin{lstlisting}[caption={Formatierter Text in Kombination mit einer Zuweisung (\graybgtexttt{f-text\_bsp\_3.py}).}, label={lst-f-text-example-3}]
+vorname = input("Wie lautet Ihr Vorname? ")
+nachname = input("Wie lautet Ihr Nachname? ")
+nachricht = <@\color{textcolor}f@>"Vorname: <@\color{keywordcolor}\{\color{black}vorname\color{keywordcolor}\}@>, Nachname: <@\color{keywordcolor}\{\color{black}nachname\color{keywordcolor}\}@>"
+print(nachricht)
+\end{lstlisting}
+
+Es gibt zwei häufige \textbf{Fehler} im Umgang mit formatiertem Text:
+
+\begin{itemize}
+	\item Der Buchstabe \lstinline{f} wird vor dem doppelten Anführungszeichen vergessen.
+	\item Die geschweiften Klammern werden gar nicht oder nicht korrekt notiert.
+\end{itemize}
+
+Häufig erkennt man dies an der abweichenden, farblichen Darstellung des Textes in der Python-Datei. Auch die Ausgabe in der Konsole ist dann nicht so wie gewünscht. \autoref{lst-f-text-example-4} zeigt ein Programm ohne den Buchstaben \lstinline{f}. \autoref{lst-f-text-example-output-2} ein Beispiel für eine Ausgabe in der Konsole, wenn der Buchstabe \lstinline{f} fehlt.
+
+\begin{lstlisting}[caption={Der Text wird so \textbf{nicht} korrekt formatiert. (\graybgtexttt{f-text\_bsp\_4.py}).}, label={lst-f-text-example-4}]
+farbe = input("Farbe? ")
+print("Das Gummibärchen ist {farbe}.")
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Die Ausgabe entspricht $1:1$ dem Text, jedes Zeichen wird ausgegeben.}, label=lst-f-text-example-output-2, language=output]
+Farbe? rot
+Das Gummibärchen ist {farbe}.
+\end{lstlisting}
+
+\section{Aufgaben}
+
+In den folgenden Aufgaben setzen Sie sich mit der \lstinline{input}-Funktion, Variablen und formatiertem Text auseinander.
+
+\subsection{Aufgabe 1}
+
+TODO: Programm mit einem input-Funktionsaufruf schreiben. Text vorgeben.
+
+\subsection{Aufgabe 2}
+
+TODO: Konsole zeigen mit einem input, passendes Programm erstellen (input und f-Text)
+
+\subsection{Aufgabe 3}
+
+TODO: Turtlebild zeigen mit einem input, passendes Programm erstellen
+
+\subsection{Aufgabe 4}
+
+TODO (optional): Zwei inputs in der Konsole zeigen, passendes Programm erstellen
