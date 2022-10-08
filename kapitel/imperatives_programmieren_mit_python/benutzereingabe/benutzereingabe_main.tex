@@ -167,16 +167,40 @@ In den folgenden Aufgaben setzen Sie sich mit der \lstinline{input}-Funktion, Va
 
 \subsection{Aufgabe 1}
 
-TODO: Programm mit einem input-Funktionsaufruf schreiben. Text vorgeben.
+Notieren Sie ein Programm, mit \textbf{einer} Benutzereingabe. Fragen Sie den Benutzer nach dem Lieblingsschulfach. Geben Sie es dann in der Konsole aus.
+
+\fillwithgrid{1in}
 
 \subsection{Aufgabe 2}
 
-TODO: Konsole zeigen mit einem input, passendes Programm erstellen (input und f-Text)
+Betrachten Sie \autoref{lst-benutzereingabe-aufgabe-2}. Notieren Sie ein Programm, welches diese Eingabe und Ausgabe erzeugen kann. Verwenden Sie eine Benutzereingabe.
+
+\begin{lstlisting}[caption={Eingabe und Ausgabe in der Konsole.}, label=lst-benutzereingabe-aufgabe-2, language=output]
+Wie lautet Ihr Geburtsdatum? 21.02.1988
+Sie haben am 21.02.1988 Geburtstag.
+\end{lstlisting}
 
 \subsection{Aufgabe 3}
 
-TODO: Turtlebild zeigen mit einem input, passendes Programm erstellen
+Notieren Sie ein Programm, mit \textbf{einer} Benutzereingabe (siehe \autoref{lst-benutzereingabe-aufgabe-3-konsole}). Fragen Sie den Benutzer nach der \textbf{Stiftfarbe}. Die Turtle soll dann ein \textbf{gleichseitiges} Dreieck mit der Seitenlänge \num{200} (siehe \autoref{figure-benutzereingabe-aufgabe-3-turtle}) zeichnen. Die Ausgabe in der Konsole soll erst dann erfolgen, wenn die Turtle tatsächlich die Stiftfarbe angepasst hat.
 
-\subsection{Aufgabe 4}
+\begin{figure}[htb]
+\begin{minipage}{0.4\linewidth}
+\centering
+\begin{tikzpicture}
+	\draw[red] (0,0) -- ++(2cm, 0) -- ++(-1cm, 1.73cm) -- cycle;
+\end{tikzpicture}
+\caption{Gleichseitiges Dreieck.}
+\label{figure-benutzereingabe-aufgabe-3-turtle}
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+\centering
+\begin{lstlisting}[caption={Eingabe und Ausgabe in der Konsole.}, label=lst-benutzereingabe-aufgabe-3-konsole, language=output]
+Stiftfarbe? red
+Stiftfarbe ist nun red.
+\end{lstlisting}
+\end{minipage}
+\end{figure}
 
-TODO (optional): Zwei inputs in der Konsole zeigen, passendes Programm erstellen
+\fillwithgrid{\stretch{1}}
