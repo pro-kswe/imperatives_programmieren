@@ -128,7 +128,7 @@ Jeder Behälter in \autoref{figure-variables-boxes} besitzt eine Beschriftung un
 Eine Variable ist ein Speicherplatz mit einem Namen. In der Variablen kann ein beliebiger Wert gespeichert werden. Dies geschieht in Python mit einer \textbf{Zuweisung}. Den gespeicherten Wert können wir auch auslesen. Dazu notieren wir den Namen der Variablen. Den Namen einer Variablen können wir selbst wählen.
 \end{definition}
 
-\subsection{Was ist ein Wert?}
+\section{Was ist ein Wert?}
 
 Computerprogramme verarbeiten Daten. Ein \textbf{Wert} ist eines der grundlegenden Dinge, mit denen ein Programm arbeitet. Die Zahl \lstinline{42} oder der Text \lstinline{"2001: Odyssee im Weltraum"} sind zwei Beispiele für einen Wert. Werte können wir in verschiedene Kategorien aufteilen. \autoref{figure-values-1} zeigt eine Übersicht der bisher kennengelernten Werte. 
 
@@ -196,11 +196,15 @@ $$
 \underbrace{\hspace{6cm}}_{\textrm{Zuweisung}}
 \end{array}
 $$
-Wir können die Zuweisung auch lesen als \say{\lstinline{a} soll $275$ speichern}. Eine Zuweisung erkennen wir am \textbf{Zuweisungsoperator}\footnote{Sie kennen den Begriff bereits aus der Mathematik. Bei der Addition von zwei Zahlen, z.B. $2 + 3$, stellt das \say{Pluszeichen} einen mathematischen Operator dar. Oft wird in der Mathematik auch der Begriff Rechenzeichen verwendet.} (eng. assignment operator). Da das Gleichheitszeichen (\lstinline{=}) in Python für das Speichern von Werten in einer Variablen benutzt wird (und nicht wie in der Mathematik im Sinne einer Gleichung), verwenden wir für das Symbol den Fachbegriff Zuweisungsoperator.
+Wir können die Zuweisung auch lesen als \say{\lstinline{a} soll $275$ speichern}. Eine Zuweisung erkennen wir am \textbf{Zuweisungsoperator}\footnote{Sie kennen den Begriff bereits aus der Mathematik. Bei der Addition von zwei Zahlen, z.B. $2 + 3$, stellt das \say{Pluszeichen} einen mathematischen Operator dar. Oft wird in der Mathematik auch der Begriff Rechenzeichen verwendet.} (eng. assignment operator). Da das Gleichheitszeichen (\lstinline{=}) in Python für das Speichern von Werten in einer Variablen benutzt wird (und nicht wie in der Mathematik im Sinne einer Gleichung), verwenden wir für das Zeichen den Fachbegriff Zuweisungsoperator.
 
 \begin{important}
 	Bei einer \textbf{Zuweisung} muss auf der \textbf{linken} Seite des Zuweisungsoperators eine Variable stehen.  
 \end{important}
+
+\begin{cleancode}[Leerzeichen 1]
+Links und rechts eines \textbf{Zuweisungsoperators} fügen wir je ein Leerzeichen ein.
+\end{cleancode}
 
 \section{Wo wird der Inhalt einer Variablen gespeichert?}
 
@@ -255,11 +259,10 @@ In Python ist es üblich, für Variablennamen \textbf{nur} Kleinbuchstaben zu ve
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[height=8cm]{naming_conventions}
+	\includegraphics[height=6.25cm]{naming_conventions}
 	\caption{In Python ist \protect\say{Snake Case} üblich.}
 	\label{figure-naming-conventions}
 \end{figure}
-
 
 \section{Wie benutzen wir den Inhalt einer Variablen?}
 

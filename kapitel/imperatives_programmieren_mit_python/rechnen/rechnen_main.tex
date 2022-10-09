@@ -1,0 +1,187 @@
+% !TEX root = ../../../main.tex
+
+\toggletrue{image}
+\toggletrue{imagehover}
+\chapterimage{wrong_times_table}
+\chapterimagetitle{\uppercase{Wrong Times Table}}
+\chapterimageurl{https://xkcd.com/2313/}
+\chapterimagehover{Deep in some corner of my heart, I suspect that real times tables are wrong about 6x7=42 and 8x7=56.}
+
+\chapter{Rechnen}
+\label{chapter-rechnen}
+
+Mit einer Programmiersprache können wir natürlich auch Berechnungen durchführen. Dies war schliesslich auch die ursprüngliche Motivation für die Konstruktion von Computern\footnote{\say{to compute} kann mit rechnen oder etwas berechnen übersetzt werden. Im deutschen Sprachraum ist auch Rechner als Bezeichnung für den Computer üblich.}. In diesem Kapitel beschäftigen wir uns hauptsächlich mit den grundlegenden Rechenarten, welche wir alle aus dem Mathematikunterricht kennen. Die Lernziele lauten:
+
+\newcommand{\rechnenLernziele}{
+\begin{todolist}
+\item Sie erstellen Python-Programme, in denen Sie mit Zahlen rechnen.
+\item Sie erklären, was ein arithmetischer Operator ist und geben ein Beispiel.
+\item Sie erklären, was ein arithmetischer Ausdruck ist und geben ein Beispiel.
+\end{todolist}
+}
+
+\lernziel{\autoref{chapter-rechnen}, \nameref{chapter-rechnen}}{\protect\rechnenLernziele}
+
+\rechnenLernziele
+
+\section{Addition, Subtraktion, Multiplikation, Division und Potenzierung}
+
+Wie beim Taschenrechner gibt es für jede Rechenart ein Zeichen. 
+
+\begin{multicols}{2}
+\begin{itemize}
+	\item Addition: \lstinline{+}
+	\item Subtraktion: \lstinline{-}
+	\item Multiplikation: \lstinline{*}
+	\item Division: \lstinline{/}
+	\item ganzzahlige Division: \lstinline{//}
+	\item Potenzierung: \lstinline{**}
+\end{itemize}
+\end{multicols}
+
+\begin{definition}[Arithmetischer Operator]
+Der Fachbegriff für \say{Rechenzeichen} lautet in der Programmierung arithmetischer Operator. Mit arithmetischen Operatoren notieren wir mathematische Rechnungen.
+\end{definition}
+
+Die Arithmetik ist ein Teilgebiet der Mathematik und beschreibt das Rechnen mit Zahlen.
+
+\begin{example}
+\autoref{lst-calc-print-1} zeigt Beispiele in Kombination mit \lstinline{print}-Funktionsaufrufen.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.6\textwidth}
+\centering
+\begin{lstlisting}[label={lst-calc-print-1}, caption={\graybgtexttt{rechenbeispiel\_1.py}}]
+print(5 + 3)
+print(<@\color{textcolor}f@>"Ergebnis: <@\color{keywordcolor}\{\color{black}5 - 3\color{keywordcolor}\}@>")
+print(<@\color{textcolor}f@>"Erst Punkt: <@\color{keywordcolor}\{\color{black}3.7 + 5 * 3\color{keywordcolor}\}@>")
+print(5 / 3)
+print(2 ** 16)
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\textwidth}
+\centering
+\begin{lstlisting}[language=output, caption={Konsolenausgabe}, label={lst-calc-print-output-1}]
+8
+Ergebnis: 2
+Punkt zuerst: 18.7
+1.6666666666666667
+65536
+\end{lstlisting}
+\end{minipage}
+\end{figure}
+
+In der Konsole (siehe \autoref{lst-calc-print-output-1}) ist zu sehen, dass Zahlen nicht immer exakt berechnet werden. Ausserdem kann man erkennen, dass Python die \say{Punkt-vor-Strich-Regel} beachtet (Rechnung in Zeile \num{3}). Formatierter Text ist auch in der Lage, eine Rechnung zu beinhalten. Die Rechnung wird automatisch ausgerechnet.
+
+\end{example}
+
+\begin{important}
+Möchte man \say{Kommazahlen} in Rechnungen verwenden, so muss man einen Punkt für das Komma verwenden!
+\end{important}
+
+\subsection{Ganzzahlige Division, Klammern und Variablen}
+
+Die Division mit dem doppelten Schrägstrich (eng. double forward slash) bewirkt, dass nur der \textbf{ganzzahlige Anteil} der Division als Ergebnis herauskommt. Es wird also die gewöhnliche Division berechnet und dann zur \textbf{nächsten ganzen Zahl abgerundet} (mathematische Abrundungsfunktion) benutzt. Möchte man die Reihenfolge der Berechnungen beeinflussen, dann kann man wie in der Mathematik \textbf{runde} Klammern verwenden. Natürlich kann man bei Rechnungen auch Variablen und Werte kombinieren.
+
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.5\textwidth}
+\centering
+\begin{lstlisting}
+import random as r
+
+print(7 // 2)
+print(1 // 2)
+print(9.0 // 3)
+a = r.randrange(1, 11)
+b = r.randrange(1, 11)
+ergebnis = (a + b) * (a - b)
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{lstlisting}
+import random as r
+
+a = r.randrange(1, 101)
+print(<@\color{textcolor}f@>"Seitenlänge: <@\color{keywordcolor}\{\color{black}a\color{keywordcolor}\}@>")
+umfang = a + a + a + a
+flaeche = a ** 2
+print(<@\color{textcolor}f@>"Umfang: <@\color{keywordcolor}\{\color{black}umfang\color{keywordcolor}\}@>")
+print(<@\color{textcolor}f@>"Fläche: <@\color{keywordcolor}\{\color{black}flaeche\color{keywordcolor}\}@>")\end{lstlisting}
+\end{minipage}
+\caption{Weitere Beispiele wie man in Python rechnen kann (\graybgtexttt{rechenbeispiel\_2.py}). Bei einer Zuweisung wird immer \textbf{zuerst} die \textbf{rechte Seite} des Zuweisungsoperators ausgewertet. Das Ergebnis wird dann in der Variablen auf der \textbf{linken Seite} des Zuweisungsoperators gespeichert.}
+\label{lst-calc-print-2}
+\end{figure}
+
+\begin{important}
+	Im Gegensatz zur Mathematik müssen immer alle \textbf{arithmetischen Operatoren} notiert werden. Ein fehlender arithmetischer Operator, wie in folgendem Code,
+	
+\begin{lstlisting}
+import random as r
+		
+x = r.randrange(1, 11)
+ergebnis = 4x
+\end{lstlisting}
+
+erzeugt einen Fehler.
+
+\end{important}
+
+\subsection{Clean Code}
+
+Eine weitere Regel vereinheitlicht die Darstellung einer Rechnung.
+
+\begin{cleancode}[Leerzeichen 3]
+Links und rechts eines arithmetischen Operators fügen wir je ein Leerzeichen ein.
+\end{cleancode}
+
+\begin{example}
+Wir notieren die Addition von \num{5} und \num{3} somit wie folgt: \lstinline{5 + 3}. Falsch, im Sinne von Clean Code, wäre \lstinline{5+3}.
+\end{example}
+
+\newpage
+
+\subsection{Arithmetischer Ausdruck}
+
+Mathematische Rechnungen sind Programmierbefehle, die in Python eine eigene Kategorie darstellen.
+
+\begin{definition}[Arithmetischer Ausdruck]
+	Rechnungen mit \textbf{arithmetischen Operatoren} werden arithmetische Ausdrücke (eng. arithmetic expressions) genannt. Bei der Programmausführung werden arithmetische Ausdrücke stets von Python direkt \textbf{ausgewertet}. Dies bedeutet, Python ermittelt für den arithmetischen Ausdruck einen \textbf{Wert} (\say{das Ergebnis der Rechnung}). Bei arithmetischen Ausdrücken ist der Wert immer eine Zahl (entweder eine ganze Zahl oder eine Fliesskommazahl). 
+\end{definition}
+
+\begin{example}
+Schauen wir uns \lstinline{(163 * 3) - (77  * 4)} im Detail an:
+$$
+\begin{array}[t]{c}
+\begin{array}[t]{cccccccccccc} 
+\underbrace{\textrm{\texttt{(}}}_{\textrm{Klammer}} & \underbrace{\textrm{\texttt{163}}}_{\textrm{Wert}} & \underbrace{\textrm{\texttt{*}}}_{\textrm{arith. Op.}} & \underbrace{\textrm{\texttt{3}}}_{\textrm{Wert}} & \underbrace{\textrm{\texttt{)}}}_{\textrm{Klammer}} & \underbrace{\textrm{\texttt{-}}}_{\textrm{arith. Op.}} & \underbrace{\textrm{\texttt{(}}}_{\textrm{Klammer}} & \underbrace{\textrm{\texttt{77}}}_{\textrm{Wert}} & \underbrace{\textrm{\texttt{*}}}_{\textrm{arith. Op.}} & \underbrace{\textrm{\texttt{4}}}_{\textrm{Wert}} & \underbrace{\textrm{\texttt{)}}}_{\textrm{Klammer}}
+\end{array} \\
+\underbrace{\hspace{14cm}}_{\textrm{arithmetischer Ausdruck}}
+\end{array}
+$$
+Mit arith. Op. ist der Begriff arithmetischer Operator gemeint. Würden wir den arithmetischen Ausdruck mit einem \lstinline{print}-Funktionsaufruf kombinieren, dann würde Python in der Konsole die Zahl \num{181} ausgeben.
+
+\begin{lstlisting}
+print((163 * 3) - (77  * 4))
+\end{lstlisting}
+
+\end{example}
+
+\section{Aufgaben}
+
+\subsection{Aufgabe 1}
+
+Würfel (Volumen $a^3$, Oberflächeninhalt $6 \cdot a^2$)
+
+\subsection{Aufgabe 2}
+
+Turtle Siebeneck mit Division und Variable, for-Schleife, range
+
+\subsection{Aufgabe 3}
+
+Drei zufällige Zahlen, arithmetisches Mittel (Durchschnitt) berechnen und ausgeben
+
