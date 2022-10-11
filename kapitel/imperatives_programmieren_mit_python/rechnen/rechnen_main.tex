@@ -187,9 +187,72 @@ Notieren Sie ein Programm, welches das \textbf{Volumen} und den \textbf{Oberflä
 
 Notieren Sie ein Programm, welches ein \textbf{regelmässiges Siebeneck} zeichnet. Die Seitenlänge \num{150} soll in einer Variablen gespeichert sein. Der Drehwinkel der Turtle soll durch einen arithmetischen Operator berechnet und in einer Variablen gespeichert werden. Verwenden Sie dann eine \lstinline{for}-Schleife mit einem \lstinline{range}-Funktionsaufruf, um das \num{7}-Eck zu zeichnen.
 
-\fillwithgrid{2in}
+\fillwithgrid{1.9in}
 
 \subsection{Aufgabe 3}
 
-Drei zufällige Zahlen, arithmetisches Mittel (Durchschnitt) berechnen und ausgeben
+Notieren Sie ein Programm, welches von drei zufälligen Zahlen das arithmetische Mittel (\say{Durchschnitt}) berechnet und in der Konsole ausgibt. Sie müssen dazu die drei Zahlen addieren und durch \num{3} teilen. Die Ausgabe in der Konsole sollte dann wie folgt lauten:
 
+\begin{lstlisting}[language=output]
+Das arithmetische Mittel von 34, 31 und 52 ist 39.0.
+\end{lstlisting}
+
+Die Zahlen sind nur ein Beispiel. Das Programm muss für drei beliebige Zahlen funktionieren.
+
+\fillwithgrid{1.9in}
+
+\section{Der Modulooperator}
+
+Beim Umrechnen einer Dezimalzahl zu einer Dualzahl gibt es ein Verfahren, welches wiederholt die ganzzahlige Division mit Rest durchführt. Bei diesem Verfahren ist man insbesondere am Rest der Division interessiert, da man dadurch die Dualzahl erhält (siehe Skript über \say{Digitalisierung}). Wir können das Verfahren auch programmieren. Mit dem Modulooperator können wir unkompliziert den Rest einer Division bestimmen. \autoref{lst-modulo-example} zeigt vier Beispiele. Die dazugehörige Ausgabe ist in \autoref{lst-modulo-example-output} dargestellt.
+
+\begin{figure}[htb]
+\begin{minipage}{0.45\textwidth}
+\begin{lstlisting}[label={lst-modulo-example}, caption={Das Prozentzeichen ist der Modoluooperator.}]
+print(5 % 2)
+print(19 % 2)
+print(18 % 6)
+print(20 % 9)
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{lstlisting}[language=output, label={lst-modulo-example-output}, caption={Reste der ganzzahligen Divisionen.}]
+1
+1
+0
+2
+\end{lstlisting}
+\end{minipage}
+\end{figure}
+
+Modulo (oder kurz mod) ist der Fachbegriff für den Rest bei einer ganzzahligen Division.
+
+\begin{definition}[Modulooperator]
+Das Prozentzeichen \lstinline{%}
+ist der Modulooperator. Er ist ein arithmetischer Operator, der den \textbf{Rest} einer ganzzahligen Division berechnet.
+\end{definition}
+
+\begin{example}
+Der Code \lstinline{rest = 24 % 5} 
+benutzt den Modulooperator. Die Variable \lstinline{rest} speichert nach der Ausführung den Wert \num{4}. Wir können uns dies wie folgt herleiten:
+\begin{enumerate}
+\item Ganzzahlige Division berechnen, das heisst $24 : 5 = 4 \text{ Rest } 4$
+\item Nur den Rest behalten, das heisst \num{4}.
+\end{enumerate}
+\end{example}
+
+\section{Aufgaben}
+
+In den folgenden Aufgaben setzen Sie sich mit den Modulooperator auseinander.
+
+\subsection{Aufgabe 1}
+
+Programm gegeben und Ausgabe bestimmen
+
+\subsection{Aufgabe 2}
+
+Teilbarkeit prüfen
+
+\subsection{Aufgabe 3}
+
+Stellen "extrahieren": Programm gegeben, erkennen was gemacht wird
