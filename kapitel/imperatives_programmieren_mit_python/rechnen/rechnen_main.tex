@@ -243,16 +243,80 @@ benutzt den Modulooperator. Die Variable \lstinline{rest} speichert nach der Aus
 
 \section{Aufgaben}
 
-In den folgenden Aufgaben setzen Sie sich mit den Modulooperator auseinander.
+In den folgenden Aufgaben setzen Sie sich mit dem Modulooperator auseinander.
 
 \subsection{Aufgabe 1}
 
-Programm gegeben und Ausgabe bestimmen
+Notieren Sie die Konsolenausgabe, wenn man das Programm aus \autoref{lst-modulo-aufgabe-1} ausführen würde.
+
+\begin{figure}[htb]
+\begin{minipage}{0.45\textwidth}
+\fillwithgrid{1.5in}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{lstlisting}[label={lst-modulo-aufgabe-1}, caption={Modulooperationen.}]
+print(8 % 2)
+print(7 % 3)
+rest = 65535 % 5
+print(rest)
+print(0 % 16)
+print(42 % 0)
+\end{lstlisting}
+\end{minipage}
+\end{figure}
 
 \subsection{Aufgabe 2}
 
-Teilbarkeit prüfen
+Notieren Sie ein Programm, welches eine zufällige Zahl zwischen \num{1} und \num{1000} erstellt. Für diese Zahl soll in der Konsole ersichtlich sein, ob die Zahl durch \num{3}, \num{6} oder \num{9} teilbar ist. Verwenden Sie eine \lstinline{for}-Schleife, welche die Teilbarkeit für die drei Zahlen in Kombination mit dem Modulooperator prüft. \autoref{lst-modulo-aufgabe-2} zeigt eine Beispielausgabe.
+
+\begin{figure}[htb]
+\begin{minipage}{0.55\textwidth}
+\fillwithgrid{3in}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}[label={lst-modulo-aufgabe-2}, caption={Beispielausgabe.}]
+309 % 3 ergibt 0
+309 % 6 ergibt 3
+309 % 9 ergibt 3
+\end{lstlisting}
+\begin{important}[Teilbarkeit]
+Eine Zahl ist durch eine andere Zahl teilbar, wenn es bei der Division keinen Rest gibt (\say{Rest ist \num{0}}).
+\end{important}
+\end{minipage}
+\end{figure}
+
+\newpage
 
 \subsection{Aufgabe 3}
 
-Stellen "extrahieren": Programm gegeben, erkennen was gemacht wird
+Das Programm aus \autoref{lst-modulo-aufgabe-3} ist gegeben. Das Ziel dieser Aufgabe lautet: welche Berechnung führt das Programm durch? Gehen Sie zur Beantwortung der Frage schrittweise vor:
+
+\begin{enumerate}
+\item Lesen Sie das Programm durch und klären Sie unklare Code-Zeilen.
+\item Führen Sie das Programm aus (in die Python-Datei \graybgtexttt{unbekannte\_berechnung.py} abtippen) und beobachten Sie die Ausgabe.
+\item Analysieren Sie den Schleifenkörper. Notieren Sie für \textbf{jede Code-Zeile im Schleifenkörper} den Sinn der Berechnung. Sie können direkt in das Listing schreiben.
+\item Notieren Sie in \textbf{einem} Satz, was das Programm berechnet.
+\item Schreiben Sie das Programm um. Sie sollen jede Variable (ausser \lstinline{zahl}) durch eine Variable mit einem \textbf{sinnvollen} Namen ersetzen. Passen Sie auch die Konsolenausgabe an. Notieren Sie das korrigierte Programm direkt hier.
+\end{enumerate}
+
+\begin{hinweis}
+Es wurden absichtlich \say{schlechte} Variablennamen benutzt. An dieser Aufgabe können Sie sehen, wie schwierig es ist, den Sinn eines Programmes zu verstehen, wenn man schlechte Variablennamen benutzt.
+\end{hinweis}
+
+\begin{lstlisting}[caption={\graybgtexttt{unbekannte\_berechnung.py}}, label={lst-modulo-aufgabe-3}]
+import random as r
+
+zahl = r.randrange(1, 1000)
+
+q = 0
+r = zahl
+for s in [100, 10, 1]:
+    z = r // s
+    q = q + z
+    r = r % s
+print(<@\color{textcolor}f@>"<@\color{keywordcolor}\{\color{black}zahl\color{keywordcolor}\}@> <@\color{keywordcolor}\{\color{black}q\color{keywordcolor}\}@>")
+\end{lstlisting}
+
+\fillwithgrid{\stretch{1}}
