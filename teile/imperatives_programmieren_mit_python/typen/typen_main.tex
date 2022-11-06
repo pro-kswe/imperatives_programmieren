@@ -257,16 +257,16 @@ In Python wird während der Ausführung des Programms eine Typisierung (eng. typ
 \begin{itemize}
 \item \lstinline{int} (kurz für Integer) ist der eingebaute Typ für alle ganzen Zahlen.
 \item \lstinline{float} (kurz für Floating Point Number) ist der eingebaute Typ für alle Fliesskommazahlen, das heisst alle Zahlen mit einem \say{Punkt}.
-\item \lstinline{str} (kurz für String) ist der eingebaute Typ für alle Texte.
+\item \lstinline{str} (kurz für String (dt. Zeichenkette)) ist der eingebaute Typ für alle Texte.
 \end{itemize}
 
 \begin{important}
-Der \textbf{Typ eines Wertes} (und nur der Typ!) entscheidet darüber, ob eine Operation durchgeführt werden kann. Falls ein Typ kompatibel mit einem Operator ist, dann entscheidet der Typ über die Art und Weise der Ausführung. Der Typ ist auch dafür verantwortlich zu entscheiden, ob eine Funktion korrekt aufgerufen wird oder der Schleifenkopf korrekt notiert wurde.
+Der \textbf{Typ eines Wertes} (und nur der Typ!) entscheidet darüber, ob eine Operation durchgeführt werden kann. Falls ein Typ kompatibel mit einem Operator ist, dann entscheidet der Typ über die Art und Weise der Ausführung. Der Typ ist auch dafür verantwortlich zu entscheiden, ob eine Funktion korrekt aufgerufen wurde oder der Schleifenkopf korrekt notiert wurde.
 \end{important}
 
 \begin{example}
 
-\autoref{lst-types-example-1} zeigt, wie der Typ eines Wertes Einfluss auf den Operator nimmt. In der ersten Zeile führt der Multiplikationsoperator dazu, dass eine gewöhnliche Multiplikation durchgeführt wird. In der zweiten Zeile führt der Multiplikationsoperator jedoch dazu, dass ein Text erzeugt wird, welcher den Text \lstinline{Apfel} viermal beinhaltet (siehe \autoref{lst-types-example-1-output}).
+\autoref{lst-types-example-1} zeigt, wie der Typ eines Wertes Einfluss auf den Operator nimmt. In der ersten Zeile führt der Multiplikationsoperator dazu, dass eine gewöhnliche Multiplikation durchgeführt wird. In der zweiten Zeile führt der Multiplikationsoperator jedoch dazu, dass ein Text erzeugt wird, welcher den Text \lstinline{Apfel} viermal beinhaltet (siehe \autoref{lst-types-example-1-output}). Diesen Vorgang nennen wir \textbf{Konkatenation} (Verkettung von Zeichen).
 
 \begin{figure}[htb]
 \begin{minipage}{0.45\textwidth}
@@ -277,330 +277,48 @@ print(4 * "Apfel")
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
-\begin{lstlisting}[language=output, label={lst-types-example-1-output}, caption={Gewöhnliche Multiplikation und Wiederholung des Texts.}]
+\begin{lstlisting}[language=output, label={lst-types-example-1-output}, caption={Gewöhnliche Multiplikation und Konkatenation des Texts.}]
 32
 ApfelApfelApfelApfel
 \end{lstlisting}
 \end{minipage}
 \end{figure}
 
-Dies liegt an den unterschiedlichen Typen, welche in den beiden Zeilen vergeben werden.
+Der Grund für das unterschiedliche Verhalten liegt an den unterschiedlichen Typen, welche in den beiden Zeilen vergeben werden.
 
 \begin{minipage}{0.45\textwidth}
 $$
+\begin{array}[t]{c}
 \begin{array}[t]{ccc}
 \underbrace{\texttt{4}}_{\texttt{int}} & \texttt{*} & \underbrace{\texttt{8}}_{\texttt{int}}
+\end{array} \\
+\underbrace{\hspace{3cm}}_{\textrm{gewöhnliche Multiplikation}}
+\end{array}
+$$
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+$$
+\begin{array}[t]{c}
+\begin{array}[t]{ccc}
+\underbrace{\texttt{4}}_{\texttt{int}} & \texttt{*} & \underbrace{\texttt{``Apfel``}}_{\texttt{str}}
+\end{array} \\
+\underbrace{\hspace{3cm}}_{\textrm{Konkatenation}}
 \end{array}
 $$
 \end{minipage}
 
 \end{example}
 
-\subsection{Integer, Float und String}
+\section{Aufgaben}
 
-Wir gehen nun die drei Typen \textbf{int}, \textbf{float} und \textbf{str} im Detail durch. Wir verwenden als Grundlage das Beispielprogramm aus \autoref{lst-typen}.	
+In diesen Aufgaben beschäftigen Sie sich mit der Typisierung und den drei Typen Integer, Floating Point Number und String.
 
-\begin{lstlisting}[caption={Ein farbiges Quadrat (\graybgtexttt{beispiel\_typen.py}).}, label=lst-typen, showstringspaces=false]
-import random
-import turtle
+int * int
+int * float
+float * float
+int * str
+str * int
+str * float
+str * str
 
-seitenlaenge = 200
-farbe = input("Farbe: ")
-tmp = [1, 2, 3, 4]
-turtle.pencolor(farbe)
-speed_level = random.randint(1, 10)
-turtle.speed(speed_level)
-for i in tmp:
-    turtle.forward(seitenlaenge)
-    turtle.left(90.0)
-turtle.done()
-\end{lstlisting}
-
-\subsubsection{Der numerische Typ Integer}
-
-Wenn Sie in einem Python-Programm eine ganze Zahl eintippen, dann wird bei der Ausführung dafür der Typ \textit{Integer} (dt. ganzzahlig, ganze Zahl) verwendet. Dies geschieht automatisch, wenn Sie eine Zahl \textbf{ohne} Punkt und \textbf{ohne} Anführungszeichen verwenden (z.B. Die Zahl \lstinline{200} in Zeile vier in \autoref{lst-typen}). Auch für erzeugte ganze Zahlen, welche Sie nicht selbst eintippen, wird der Typ Integer verwendet (z.B. \lstinline{random.randint}). Man kürzt den Typ mit \textbf{int} ab.
-
-\subsubsection{Der numerische Typ Floating Point Number}
-
-Sobald Sie in Python einen Punkt verwenden, dann wird dafür der Typ \textit{Floating Point Number} (abgekürzt mit \textbf{float}) verwendet. Dieser Typ repräsentiert alle Zahlen mit einem \say{Komma}. Mit diesem Typ sollen die reellen Zahlen angenähert werden. Eine exakte Darstellung ist nicht möglich. In Zeile zwölf (\autoref{lst-typen}) sehen Sie ein Beispiel für eine Zahl (\lstinline[mathescape]{90$\textcolor{numbercolor}{\texttt{.}}$0}), welche bei der Ausführung den Typ \textbf{float} erhält.
-
-\begin{hinweis}
-\textbf{Numerische Typen} (wie \textbf{int} und \textbf{float}) erlauben das \say{gewöhnliche} Rechnen: Addition, Subtraktion, Multiplikation, Division, Potenzierung, Runden, Wurzel ziehen, Rechnen mit Rest, Betrag bestimmen etc. Allein auf Grundlage des Typs entscheidet Python, welche Befehle möglich sind und welche nicht. Auch bei einem Funktionsaufruf wird der Typ verwendet. Der Aufruf \lstinline{turtle.fd(100)} ist korrekt, da der Funktionsaufruf von \lstinline{fd} eine Zahl vom Typ \textbf{int} oder \textbf{float} erwartet\footnote{Dies kann man in der Dokumentation nachlesen.} und \lstinline{100} bei der Ausführung den Typ \textbf{int} erhält. 
-\end{hinweis}
-
-\subsubsection{Der Texttyp String}
-
-Text erhält in Python den Typ \textit{String} (dt. Zeichenkette\footnote{Zeichenketten sind Sequenzen von einzelnen Zeichen - es werden einzelnen Zeichen aneinander gefügt. Man sagt dazu auch \say{verketten}.}). String wird abgekürzt mit \textbf{str}. Immer wenn wir doppelte Anführungszeichen verwenden, dann ist dies Text. Text erhält bei der Ausführung automatisch den Typ \textbf{str}. In \autoref{lst-typen} finden wir in Zeile fünf einen Text, welcher während der Ausführung den Typ \textbf{str} erhält.
-
-\begin{important}
-Wenn Sie über die Konsole eine Benutzereingabe durchführen, dann müssen Sie \textbf{keine} Anführungszeichen verwenden. Alles, was Sie mit der \lstinline{input}-Funktion einlesen, wird von Python als Text angesehen. Die Eingabe erhält somit den Typ \lstinline{str}.
-\end{important}
-
-Der Wert, den die Variable \lstinline{farbe} nach der Benutzereingabe speichert, ist somit auch ein Text. Der Wert besitzt somit den Typ \textbf{str}.
-
-Für Werte die den Typ \textbf{str} erhalten (also zum Beispiel \lstinline{"KSWE"}) können die üblichen Rechenarten nicht durchgeführt werden. Dies erscheint auch sinnvoll: Wie wollen Sie die Strings \lstinline{"Apfel"} und \lstinline{"Birne"} miteinander dividieren? Wenn Sie es trotzdem versuchen (siehe \autoref{lst-typ-fehler}), dann produziert Python einen Fehler (siehe \autoref{lst-typ-fehler-output}).
-
-\begin{lstlisting}[caption={Code-Gerüst (\graybgtexttt{beispiel\_typ\_fehler.py}).}, label=lst-typ-fehler, showstringspaces=false]
-a = "Apfel" // "Birne"
-\end{lstlisting}
-
-\begin{figure}[htb]
-\centering
-\begin{lstlisting}[numbers=none, language=, xleftmargin=0.5cm, framexleftmargin=1mm]
-Traceback (most recent call last):
-  File "..beispiel_typ_fehler.py", line <@\color{black}{1}@>, in <module>
-    print("Apfel" // "Birne")
-TypeError: unsupported operand type(s) for //: 
-	'str' and 'str'
-\end{lstlisting}
-\caption{Der Operand \texttt{//} kann mit \texttt{str} nicht verwendet werden.}
-\label{lst-typ-fehler-output}
-\end{figure}
-
-Gewisse Operanden (zum Beispiel die Multiplikation) sind eingeschränkt möglich, zeigen jedoch ein anderes Verhalten. Das Eingangsbeispiel (siehe \autoref{lst-calc-input-quad-wrong}) multipliziert eine Zahl mit einem String (\lstinline{umfang = 4  * a}). Dies hat zur Folge, dass viermal der String wiederholt wird.
-
-\subsection{Aufgaben}
-
-Erstellen Sie im Ordner \graybgtexttt{07\_typen} einen Ordner  \graybgtexttt{aufgaben}. Falls Befehle wiederholt ausgeführt werden, dann verwenden Sie dafür eine passende \lstinline{for}-Schleife. Berechnungen soll Python ausführen. Verwenden Sie möglichst immer eine Variable mit einem passenden Namen.
-
-\subsubsection{\turtleexercise{Aufgabe 1}}
-
-Erstellen Sie eine neue Datei mit dem Namen \graybgtexttt{01\_stern.py}. Erstellen Sie darin ein Python-Programm, welches einen Stern gemäss \autoref{figure-stern} zeichnet. Die Turtle soll zum Schluss wieder nach \textit{rechts} blicken. Die \textbf{Länge} eines Strahls soll der Benutzer über eine Benutzereingabe wählen können. Verwenden Sie dazu die passenden Funktionen und eine Variable.
-
-\begin{figure}[htb]
-\centering
-\begin{minipage}[c]{0.45\linewidth}
-\centering
-\begin{tikzpicture}
-	\draw (0,0) -- (1,0);
-	\draw (0,0) -- ++(45:1cm);
-	\draw (0,0) -- (0, 1);
-	\draw (0,0) -- ++(135:1cm);
-	\draw (0,0) -- (-1,0);
-	\draw (0,0) -- ++(225:1cm);
-	\draw (0,0) -- (0, -1);
-	\draw (0,0) -- ++(315:1cm);
-	\node (A) at (2,0.5) {Strahl}; 
-	\draw [decorate,decoration={brace,mirror,amplitude=5pt}] (0,0) -- (45:1cm) node (curly_bracket)[midway, yshift = -0.2 cm] {};
-	\draw[-latex] (curly_bracket) -- (A);
-\end{tikzpicture}
-\caption{Ein Stern mit acht Strahlen.}
-\label{figure-stern}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{0.45\linewidth}
-\centering
-\begin{tikzpicture}
-	\draw[red] (0,0) -- (1,0);
-	\draw[red] (0,0) -- ++(36:1cm);
-	\draw[red] (0,0) -- ++(72:1cm);
-
-	\draw[red] (0,0) -- ++(108:1cm);
-	\draw[red] (0,0) -- ++(144:1cm);
-	\draw[red] (0,0) -- ++(180:1cm);
-	\draw[red] (0,0) -- ++(216:1cm);
-	\draw[red] (0,0) -- ++(252:1cm);
-	\draw[red] (0,0) -- ++(288:1cm); 
-	\draw[red] (0,0) -- ++(324:1cm); 
-\end{tikzpicture}
-\caption{Ein Stern mit zehn Strahlen.}
-\label{figure-farbiger-stern-input}
-\end{minipage}
-\end{figure}
-
-\subsubsection{\turtleexercise{Aufgabe 2}}
-
-Erstellen Sie eine neue Datei \graybgtexttt{02\_farbiger\_stern.py}. Erstellen Sie darin ein Python-Programm, welches einen Stern gemäss \autoref{figure-farbiger-stern-input} zeichnet. Die Turtle soll zum Schluss wieder nach \textit{rechts} blicken. Die Länge, die Farbe und die Anzahl der Strahlen (im Beispiel sind es zehn) soll durch eine Benutzereingabe erfolgen. Verwenden Sie die \lstinline{range}-Funktion mit einer Variablen. \textbf{Tipp}: Verwenden Sie \lstinline{turtle.ht()} und \lstinline{turtle.speed(0)} für ein schnelles Zeichnen.
-
-\subsubsection{\turtleexercise{Aufgabe 3}}
-
-Erstellen Sie eine neue Datei mit dem Namen \graybgtexttt{03\_gekipptes\_quadrat.py}. Erstellen Sie darin ein Python-Programm, welches ein Quadrat gemäss \autoref{figure-gekipptes-quadrat} zeichnet. Die Turtle soll zum Schluss wieder nach \textit{rechts} blicken. Der Benutzer soll eine über eine Benutzereingabe wählen können, um wie viel \textbf{Grad} ($\alpha$) das Quadrat nach links geneigt ist. Für die Benutzereingabe soll auch eine \say{Kommazahl} möglich sein. Lesen Sie in der Python-Dokumentation nach, welche \textbf{eingebaute} Funktion es dazu benötigt und wie der Funktionsaufruf aussieht. Verwenden Sie auch eine Benutzereingabe für die Seitenlänge. Diese Seitenlänge soll eine ganze Zahl sein.
-
-\begin{figure}[htb]
-\centering
-\begin{minipage}[c]{0.45\linewidth}
-\centering
-\begin{tikzpicture}
-	\draw[fill=green!30, thin, dashed] (0,0) -- ++(0:0.75cm) arc (0:30:.75cm) -- (0,0);	
-	\draw (0,0) -- ++(30:1cm) --++(120:1cm)--++(210:1cm) --++(300:1cm);
-	\node (A) at (0.25,0.1) {};
-	\node (B) at (1.25, 0.4) {$\alpha$};
-	\draw[-latex] (A) -- (B);
-\end{tikzpicture}
-\caption{Der Winkel $\alpha$ soll der Benutzer wählen können.}
-\label{figure-gekipptes-quadrat}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{0.45\linewidth}
-\centering
-\begin{tikzpicture}
-	\draw[fill=green!30, thin, dashed] (0,0) -- ++(0:0.75cm) arc (0:60:0.75cm) -- (0,0);	
-	\draw[fill=green!30, thin, dashed] (2cm,0) -- ++(60:0.5cm) arc (60:180:0.5cm) -- (2cm,0);
-	\draw (0,0) -- ++(0:2cm) -- ++(60:1cm) -- ++(180:2cm) -- cycle;
-	\draw (1.4cm, 1.1cm) node {$a$};
-	\draw (2.6cm, 0.4cm) node {$b$};
-	\draw (0.4cm,0.2cm) node {$\alpha$};
-	\draw (1.8cm,0.2cm) node {$\beta$};
-\end{tikzpicture}
-\caption{$\alpha$, $a$ und $b$ soll der Benutzer wählen können. $\beta = $\unit{180}{\degree}$ - \alpha$.}
-\label{figure-parallelogramm}
-\end{minipage}
-\end{figure}
-
-\subsubsection{\turtleexercise{Aufgabe 4}}
-
-Erstellen Sie eine neue Datei mit dem Namen \graybgtexttt{04\_parallelogramm.py}. Erstellen Sie darin ein Python-Programm, welches ein Parallelogramm gemäss \autoref{figure-parallelogramm} zeichnet. Die Turtle soll zum Schluss wieder nach \textit{rechts} blicken. Der Benutzer soll eine über eine Benutzereingabe die Angaben ($\alpha$, $a$ und $b$) wählen können (\say{Kommazahlen}).
-
-\subsubsection{Aufgabe 5}
-
-\begin{enumerate}
-\item Erstellen Sie eine neue Datei mit dem Namen \graybgtexttt{05\_typen.txt}. Schauen Sie das Programm in \autoref{lst-typen-theorie} an. Wie lautet die Ausgabe, wenn man das Programm ausführen würde? Notieren Sie sich Ihre Vermutung in der Datei \graybgtexttt{05\_typen.txt}.
-\item Tippen Sie das Programm in die Datei \graybgtexttt{05\_typen.py} ab und führen Sie das Programm aus. Vergleichen Sie Ihre Vermutung mit der tatsächlichen Ausgabe. Korrigieren Sie Ihre Vermutung, falls nötig.
-\item Erklären Sie in der Datei \graybgtexttt{05\_typen.txt}, warum das Programm diese Ausgabe produziert. Gehen Sie dabei auf die Typen ein.
-\end{enumerate}
-
-\begin{lstlisting}[caption={Wie lautet die Ausgabe und warum?}, label=lst-typen-theorie, showstringspaces=false]
-print("<@\color{textcolor}{(163 * 3) - (77 * 4)}@>")
-print((163 * 3) - (77 * 4))
-\end{lstlisting}
-
-\subsubsection{Aufgabe 6}
-
-In den USA werden Temperaturen in Grad Fahrenheit angegeben. Die Umrechnung solcher Temperaturangaben von Grad Fahrenheit ($T_F$) in Grad Celsius ($T_C$) erfolgt nach der folgenden Formel:
-
-\begin{center}
-$T_C = (T_F - 32 ) \cdot \frac{5}{9}$
-\end{center}
-
-Erstellen Sie eine neue Datei mit dem Namen \graybgtexttt{06\_temperatur\_umrechnen.py}. Erstellen Sie darin ein Python-Programm, um eine Temperatur von Grad Fahrenheit in Grad Celsius umrechnen zu können. Der Benutzer soll eine Temperatur in Grad Fahrenheit eingeben können und in der Konsole soll dann die entsprechende Temperatur in Grad Celsius angezeigt werden. Sie können das Programm testen, in dem Sie $\unit{86}{\degree}$ (Fahrenheit) eingeben und dann $\unit{30}{\degree}$ (Celsius) erhalten. Sorgen Sie für eine ansprechende Darstellung der Ergebnisse. Ein Beispiel sehen Sie in \autoref{lst-temperatur-output}.
-
-\begin{figure}[htb]
-\begin{lstlisting}[numbers=none, language=, xleftmargin=0.5cm, framexleftmargin=1mm]
-Bitte geben Sie eine Temperatur in Fahrenheit ein: <@\color{black}{86}@>
-<@\color{black}{86.0}@> Grad Fahrenheit entsprechen <@\color{black}{30.0}@> Grad Celsius.
-\end{lstlisting}
-\caption{Beispielausgabe}
-\label{lst-temperatur-output}
-\end{figure}
-
-\newpage
-
-\subsubsection{Aufgabe 7}
-
-\begin{wrapfigure}[14]{r}{6.75cm}
-\vspace{-\baselineskip}
-\centering
-\begin{forest}
-  pic dir tree,
-  pic root,
-  for tree={% folder icons by default; override using file for file icons
-    directory,
-  },
-  [
-  	07\_typen
-  	[
-		aufgaben
-		[01\_stern.py, file]
-		[02\_farbiger\_stern.py, file]
-		[03\_gekipptes\_quadrat.py, file]
-		[04\_parallelogramm.py, file]
-		[05\_typen.py, file]
-		[05\_typen.txt, file]
-		[06\_temperatur\_umrechnen.py, file]
-		[07\_analyse.txt, file]
-		[08\_addierer.py, file]
-	]
-]
-\end{forest}
-\end{wrapfigure}
-
-Analysieren Sie das Programm in \autoref{lst-analyse-typen}. Verwenden Sie für Ihre Antworten die Datei \graybgtexttt{07\_analyse.txt}.
-
-\begin{enumerate}
-\item Nennen Sie alle \lstinline{import}-Anweisungen (inkl. \ac{ZNR}).
-\item Nennen Sie alle Funktionsaufrufe (inkl. \ac{ZNR}, Funktionsname und Argument bzw. \say{kein Argument} als Antwort, falls es kein Argument gibt).
-\item Notieren Sie den Schleifenkopf.
-\item Notieren Sie den Schleifenkörper.
-\item Notieren Sie alle Zuweisungen (inkl. \ac{ZNR}).
-\item Notieren Sie alle arith. Ausdrücke (inkl. \ac{ZNR}).
-\item Notieren Sie alle Listen.
-\item Notieren Sie für die Typen String, Integer und Float ein Beispiel aus dem Code.
-\item Wo findet eine Zuweisung ohne Zuweisungsoperator statt?
-\end{enumerate}
-
-\begin{figure}[htb]
-\centering
-\begin{minipage}[c]{0.55\linewidth}
-\centering
-\begin{lstlisting}[caption={Python-Code}, label=lst-analyse-typen, showstringspaces=false]
-import random
-import turtle
-
-turtle.hideturtle()
-turtle.pencolor("blue")
-laenge = random.randint(10, 50)
-winkel = 180 - 60.0
-for i in [1, 2, 3]:
-    print(i, ". Linie")
-    turtle.fd(laenge)
-    turtle.rt(winkel)
-turtle.done()
-\end{lstlisting}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{0.4\linewidth}
-\centering
-\vspace{2cm}
-\begin{lstlisting}[numbers=none, language=, xleftmargin=0.5cm, framexleftmargin=1mm]
-Wie viele Zahlen? 3
-Zahl: 1.5
-Zahl: 42
-Zahl: 3.14
-=========
-Ergebnis: 46.64
-\end{lstlisting}
-\caption{Beispielausgabe}
-\label{lst-addierer-output}
-\end{minipage}
-\end{figure}
-
-\subsubsection{Aufgabe 8}
-
-\begin{wrapfigure}[8]{r}{6.75cm}
-\vspace{-\baselineskip}
-\begin{forest}
-  pic dir tree,
-  pic root,
-  for tree={% folder icons by default; override using file for file icons
-    directory,
-  },
-  [
-  	PROJEKTORDNER
-  	[
-		01\_mein\_erstes\_programm
-    	]
-    	[
-    		02\_turtle\_grundlagen
- 	]
-	[
-    		03\_import\_funktionsaufruf...
- 	]
-	[
-    		04\_variablen
- 	]
-	[
-    		05\_schleifen
- 	]
-	[
-    		06\_grundrechenarten
- 	]
-	[
-    		07\_typen
- 	]
-]
-\end{forest}
-\end{wrapfigure}
-
-Erstellen Sie eine neue Datei mit dem Namen \graybgtexttt{08\_addierer.py}. Darin soll ein Programm erstellt werden, welches beliebige Zahlen (auch \say{Kommazahlen}) addieren kann. Der Benutzer soll zuvor festlegen, wie viele Zahlen er addieren möchte. Danach soll er Zahl für Zahl eingeben. Die Summe soll in der Konsole angezeigt werden. Die Eingabe und Ausgabe kann wie in \autoref{lst-addierer-output} erfolgen.
-
-\newpage
+Plus, Minus, Geteilt, Potenz, Modulo, type-Funktion verwenden

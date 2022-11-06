@@ -17,6 +17,7 @@ Wir können Befehle in unterschiedliche Kategorie einteilen. Wir befassen uns nu
 \protect\begin{todolist}
 \item Sie erklären die neuen Fachbegriffe und nennen dazu Beispiele.
 \item Sie verknüpfen die Fachbegriffe mit einem gegebenen Python-Programm.
+\item Sie recherchieren in der Python-Dokumentation.
 \end{todolist}
 }
 
@@ -123,7 +124,7 @@ In den folgenden Aufgaben repetieren Sie die Fachbegriffe und setzen sich mit de
 
 \subsection{Aufgabe 1}
 
-Analysieren Sie alle bisherigen Funktionsaufrufe. Beispiel:
+Analysieren Sie die nachfolgenden Funktionsaufrufe. Beispiel:
 
 $$
 \begin{array}[t]{ccc} 
@@ -133,21 +134,20 @@ $$
  &  & \underbrace{\hspace{6cm}}_{\textrm{Funktionsaufruf}}
 \end{array}
 $$
+\begin{center}
+Die Turtle bewegt sich um \num{100} Pixel in Blickrichtung.
+\end{center}
 \vspace{0.5cm}
 \begin{itemize}
 	\centering
 	\item[] \lstinline{turtle.backward(50)}
-	\vspace{1.75cm}
-	\item[] \lstinline{turtle.left(90)}
-	\vspace{1.75cm}
+	\vspace{2.25cm}
 	\item[] \lstinline{turtle.right(45)}
-	\vspace{1.75cm}
-	\item[] \lstinline{turtle.pu()}
-	\vspace{1.75cm}
-	\item[] \lstinline{turtle.pd()}
-	\vspace{1.75cm}
+	\vspace{2.25cm}
+	\item[] \lstinline{turtle.penup()}
+	\vspace{2.25cm}
 	\item[] \lstinline{turtle.done()}
-	\vspace{1.75cm}
+	\vspace{2.25cm}
 \end{itemize}
 
 \subsection{Aufgabe 2}
@@ -176,7 +176,7 @@ Erstellen Sie handschriftlich ein Python-Programm, welches ein Quadrat zeichnet.
 \begin{enumerate}
 	\item Wie berechnen wir mit Python die Quadratwurzel von $42$? Finden Sie die passende Funktion in der Dokumentation des Moduls \lstinline{math}. Notieren Sie den Code hier.
 	\fillwithgrid{1.5in}
-	\item Wie erzeugen wir mit Python eine Zufallszahl zwischen $1$ und $100$? Finden Sie die passende Funktion in der Dokumentation des Moduls \lstinline{random}. Notieren Sie den Code hier.
+	\item Wie erzeugen wir mit Python eine \textbf{ganzzahlige} (eng. integer) Zufallszahl zwischen $1$ und $100$? Finden Sie die passende Funktion in der Dokumentation des Moduls \lstinline{random}. Notieren Sie den Code hier.
 	\fillwithgrid{1.5in}
 		\item Wie prüfen wir mit Python, ob ein Jahr (z.B. 2017) ein Schaltjahr war? Finden Sie die passende Funktion in der Dokumentation des Moduls \lstinline{calendar}. Notieren Sie den Code hier.
 	\fillwithgrid{1.5in}
